@@ -23,9 +23,11 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "mani28au@gmail.com",
+                    emailext (mail to: "mani28au@gmail.com",
                         subject: "Unit and Integeration Successfull",
-                            body: "Stage 2 is successfully done"
+                            body: "Stage 2 is successfully done",
+                            attachLog: true
+                    )
                 } 
                 failure {
                    mail to: "mani28au@gmail.com",
