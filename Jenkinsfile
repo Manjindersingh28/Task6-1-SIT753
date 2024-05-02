@@ -59,6 +59,26 @@ pipeline {
                 }
             }
         }
+        stage('Deploy to Staging') {
+        steps {
+                echo "Deploying application to staging server (e.g., AWS EC2)"
+                // Implement deployment to staging server here
+            }
+        }
+
+        stage('Integration Tests on Staging') {
+        steps {
+                echo "Running integration tests on staging environment"
+                // Implement integration tests on staging environment here
+            }
+        }
+
+        stage('Deploy to Production') {
+        steps {
+                echo "Deploying application to production server (e.g., AWS EC2)"
+                // Implement deployment to production server here
+            }
+        }
         
     }
 }
