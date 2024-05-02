@@ -26,6 +26,7 @@ pipeline {
                     emailext (mail to: "mani28au@gmail.com",
                         subject: "Unit and Integeration Successfull",
                             body: "Stage 2 is successfully done",
+                            attachmentsPattern: 'build.log',
                             attachLog: true
                     )
                 } 
