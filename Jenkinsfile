@@ -5,7 +5,6 @@ pipeline {
         DIRECTORY_PATH = '/Users/manjinder/Desktop/Jenkinsfile'
         PRODUCTION_ENVIRONMENT = 'ManjinderSingh'
     }
-
     stages {
         stage('Build') {
             steps {
@@ -23,25 +22,23 @@ pipeline {
             post {
                 success {
                     mail to: "mani28au@gmail.com",
-                    subject: "Unit and Integeration Successfull",
-                    body: "Stage 2 is successfully done"
-
+                        subject: "Unit and Integeration Successfull",
+                            body: "Stage 2 is successfully done"
                 } 
                 failure {
                    mail to: "mani28au@gmail.com",
-                    subject: "Unit and Integeration Successfull",
-                    body: "Stage 2 is successfully done"
-
+                        subject: "Unit and Integeration Successfull",
+                            body: "Stage 2 is successfully done"
                 }
             }
         }
-            stage('Code Analysis') {
+        stage('Code Analysis') {
             steps {
                 echo "Performing code analysis"
                 // Integrate code analysis tool (e.g., SonarQube) here
             }
         }
-         stage('Security Scan') {
+        stage('Security Scan') {
             steps {
                 echo "Performing security scan"
                 // Integrate security scanning tool (e.g., OWASP ZAP) here
@@ -49,13 +46,13 @@ pipeline {
             post {
                 success {
                     mail to: "mani28au@gmail.com",
-                    subject: "Security Scan Success",
-                    body: "Security Scan ran successfully"
+                        subject: "Security Scan Success",
+                            body: "Security Scan ran successfully"
                 }
                 failure {
                     mail to: "mani28au@gmail.com",
-                    subject: "Security Scan Failure",
-                    body: "Security Scan failed to run"                  
+                        subject: "Security Scan Failure",
+                            body: "Security Scan failed to run"
                 }
             }
         }
@@ -79,6 +76,18 @@ pipeline {
                 // Implement deployment to production server here
             }
         }
-        
+    }
+    post {
+        success {
+            mail to: "mani28au@gmail.com",
+                subject: "Pipeline Success",
+                    body: "Pipeline ran successfully"
+        }
+        failure {
+                    mail to: "mani28au@gmail.com",
+                subject: "Pipeline Failure",
+                    body: "Pipeline failed to run"
+
+        }
     }
 }
