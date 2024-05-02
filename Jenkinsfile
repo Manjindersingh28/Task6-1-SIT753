@@ -35,6 +35,13 @@ pipeline {
                 }
             }
         }
+            stage('Code Analysis') {
+            steps {
+                echo "Performing code analysis"
+                // Integrate code analysis tool (e.g., SonarQube) here
+            }
+        }
+        
         
     }
 }
