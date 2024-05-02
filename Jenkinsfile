@@ -41,7 +41,24 @@ pipeline {
                 // Integrate code analysis tool (e.g., SonarQube) here
             }
         }
-        
+         stage('Security Scan') {
+            steps {
+                echo "Performing security scan"
+                // Integrate security scanning tool (e.g., OWASP ZAP) here
+            }
+            post {
+                success {
+                    mail to: "mani28au@gmail.com",
+                    subject: "Security Scan Success",
+                    body: "Security Scan ran successfully"
+                }
+                failure {
+                    mail to: "mani28au@gmail.com",
+                    subject: "Security Scan Failure",
+                    body: "Security Scan failed to run"                  
+                }
+            }
+        }
         
     }
 }
