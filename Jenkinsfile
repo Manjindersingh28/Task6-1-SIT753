@@ -17,6 +17,8 @@ pipeline {
                 echo "Running unit tests"
                 // Implement test automation tool for unit tests here
                 echo "Running integration tests"
+                echo "Everything is all set"
+
                 // Implement test automation tool for integration tests here
             }
             post {
